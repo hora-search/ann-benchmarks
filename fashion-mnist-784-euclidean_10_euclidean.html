@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>fashion-mnist-784-euclidean (k = 10)</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style>
+            body { padding-top: 50px; }
+        </style>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+      </head>
+         <body>
+
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="index.html">ANN Benchmarks</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#datasets">Datasets</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#algorithms">Algorithms</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#contact">Contact</a></li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </nav>
+
+                    <div class="container">
+                                                        <h2>Plots for fashion-mnist-784-euclidean (k = 10)</h2>
+                                                                <h3>Recall/Queries per second (1/s)</h3>
+            <div id="RecallQueries per second (1/s)">
+            <canvas id="chartRecallQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.90079 , y: 2141.023935566078, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.9033 , y: 2046.6107430395639, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.9134399999999999 , y: 1616.9100028511684, label: "Annoy(n_trees=200, search_k=100)" },
+                                                                    { x: 0.91482 , y: 1502.4329303124034, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 0.95555 , y: 1263.1487141692608, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 0.9729699999999999 , y: 1209.2925871441334, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.9762700000000001 , y: 1033.1761988039673, label: "Annoy(n_trees=200, search_k=2000)" },
+                                                                    { x: 0.98694 , y: 937.0390265223143, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 0.9878199999999999 , y: 810.7584213215016, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 0.9884299999999999 , y: 612.4257314230052, label: "Annoy(n_trees=400, search_k=4000)" },
+                                                                    { x: 0.99544 , y: 593.7435320584608, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 0.9983700000000001 , y: 395.4092784273527, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 0.9991099999999999 , y: 251.93110809476408, label: "Annoy(n_trees=200, search_k=40000)" },
+                                                                    { x: 0.9994400000000001 , y: 247.45394744717512, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 0.99976 , y: 128.07729899631747, label: "Annoy(n_trees=400, search_k=100000)" },
+                                                                    { x: 0.99985 , y: 81.7725554580599, label: "Annoy(n_trees=200, search_k=100000)" },
+                                                                    { x: 0.99993 , y: 76.25281304354655, label: "Annoy(n_trees=100, search_k=100000)" },
+                                                                    { x: 0.9999800000000001 , y: 40.25680521288802, label: "Annoy(n_trees=400, search_k=400000)" },
+                                                                    { x: 0.99999 , y: 33.871464600207645, label: "Annoy(n_trees=100, search_k=200000)" },
+                                                                    { x: 1.0 , y: 17.957622373008192, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(nmslib)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(76, 229, 229, 1)",
+                            data: [
+                                                                    { x: 0.29186 , y: 24204.76881331362, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.36416 , y: 20444.790636438127, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.52053 , y: 20018.613957031353, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.52969 , y: 19018.63863804858, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.6065 , y: 16644.64473362562, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.70079 , y: 16065.8029657146, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.74917 , y: 14943.717502264197, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.80884 , y: 13125.949598629793, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.87843 , y: 12239.771237338344, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.91876 , y: 9947.621056785794, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.95473 , y: 9192.193207036406, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.97697 , y: 7189.565361079776, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.99125 , y: 5074.973241559687, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9948600000000001 , y: 4502.399602907261, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.9968299999999999 , y: 4453.062559189376, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99694 , y: 3642.771619984843, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9981099999999999 , y: 3590.2649070793113, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99903 , y: 3369.4874934316226, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99942 , y: 2803.4124828901636, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.9996 , y: 2366.9316772107127, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99975 , y: 2259.9591157012505, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99978 , y: 2037.6526446586013, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99982 , y: 1857.321712142288, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99983 , y: 1774.924788041141, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.9998900000000001 , y: 1445.2907010140802, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99992 , y: 1246.3851803478383, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.9999399999999999 , y: 1195.985009468669, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99997 , y: 789.9041966880854, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.9999800000000001 , y: 728.2012293972314, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99999 , y: 653.7134184701397, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-HNSWIndex",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(229, 204, 229, 1)",
+                            data: [
+                                                                    { x: 0.97269 , y: 3578.422431072584, label: "Hora(hora-search) 1624425472.6833906" },
+                                                                    { x: 0.9727 , y: 3572.654901780406, label: "Hora(hora-search) 1624435552.6150463" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-SGGIndex",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(76, 76, 153, 1)",
+                            data: [
+                                                                    { x: 0.87562 , y: 4055.3851592169594, label: "Hora(hora-search) 1624441226.4472382" },
+                                                                    { x: 0.89001 , y: 3336.8935422742393, label: "Hora(hora-search) 1624418982.0830588" },
+                                                                    { x: 0.9324 , y: 1883.3404967527526, label: "Hora(hora-search) 1624448475.7712102" },
+                                                            ]
+                        },
+                                                {
+                            label: "pynndescent",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(127, 229, 76, 1)",
+                            data: [
+                                                                    { x: 0.71236 , y: 13715.746229342441, label: "PyNNDescent(n_neighbors=10, pruning_mult=0.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.81663 , y: 11807.121537258003, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.010, leaf_size=24)" },
+                                                                    { x: 0.84398 , y: 11667.571204162412, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.030, leaf_size=24)" },
+                                                                    { x: 0.8590899999999999 , y: 11598.387515132947, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.8630599999999999 , y: 11574.1432401996, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.8976900000000001 , y: 10533.46871316912, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.020, leaf_size=24)" },
+                                                                    { x: 0.90107 , y: 10455.209876740166, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 0.90116 , y: 10422.399627067152, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.020, leaf_size=24)" },
+                                                                    { x: 0.92303 , y: 9936.88144790291, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.040, leaf_size=24)" },
+                                                                    { x: 0.9411099999999999 , y: 9633.567402407481, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.060, leaf_size=24)" },
+                                                                    { x: 0.9520899999999999 , y: 8880.574040707092, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 0.95533 , y: 8695.536075981121, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 0.9667 , y: 8199.108563068645, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.100, leaf_size=24)" },
+                                                                    { x: 0.9752000000000001 , y: 7493.049244559224, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.080, leaf_size=36)" },
+                                                                    { x: 0.9757199999999999 , y: 7274.818706411054, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.120, leaf_size=24)" },
+                                                                    { x: 0.97948 , y: 6843.673373219779, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.140, leaf_size=24)" },
+                                                                    { x: 0.98238 , y: 6828.603882904933, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.140, leaf_size=24)" },
+                                                                    { x: 0.9881 , y: 6371.127910186064, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.120, leaf_size=36)" },
+                                                                    { x: 0.99184 , y: 5981.780992549985, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 0.99445 , y: 5679.666979517713, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 0.99451 , y: 5518.332389776537, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 0.99596 , y: 5087.812999426844, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.020, leaf_size=36)" },
+                                                                    { x: 0.9976 , y: 4936.336583382323, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.200, leaf_size=36)" },
+                                                                    { x: 0.99778 , y: 4679.303514846061, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.040, leaf_size=36)" },
+                                                                    { x: 0.9987999999999999 , y: 4173.899890385848, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.240, leaf_size=36)" },
+                                                                    { x: 0.99915 , y: 3949.963596858302, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.080, leaf_size=36)" },
+                                                                    { x: 0.99975 , y: 3400.471150828503, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.120, leaf_size=36)" },
+                                                                    { x: 0.9998699999999999 , y: 3008.3952099261523, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 0.9999 , y: 2700.1627383562636, label: "PyNNDescent(n_neighbors=60, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.120, leaf_size=48)" },
+                                                                    { x: 0.99997 , y: 2599.0625586938754, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.200, leaf_size=36)" },
+                                                                    { x: 1.0 , y: 2164.3037440514986, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.240, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Build time (s)</h3>
+            <div id="RecallBuild time (s)">
+            <canvas id="chartRecallBuild time (s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallBuild time (s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.99999 , y: 40.54649591445923, label: "Annoy(n_trees=200, search_k=400000)" },
+                                                                    { x: 1.0 , y: 55.96988081932068, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(nmslib)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(76, 229, 229, 1)",
+                            data: [
+                                                                    { x: 0.99855 , y: 72.07849192619324, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.99999 , y: 186.91403365135193, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-HNSWIndex",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(229, 204, 229, 1)",
+                            data: [
+                                                                    { x: 0.9726800000000001 , y: 167.20970678329468, label: "Hora(hora-search) 1624419857.5831711" },
+                                                                    { x: 0.97269 , y: 169.59501838684082, label: "Hora(hora-search) 1624425413.54538" },
+                                                                    { x: 0.9727 , y: 312.788649559021, label: "Hora(hora-search) 1624435552.6150463" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-SGGIndex",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(76, 76, 153, 1)",
+                            data: [
+                                                                    { x: 0.89001 , y: 2176.874613761902, label: "Hora(hora-search) 1624418982.0830588" },
+                                                                    { x: 0.9324 , y: 4513.496347427368, label: "Hora(hora-search) 1624448475.7712102" },
+                                                            ]
+                        },
+                                                {
+                            label: "pynndescent",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(127, 229, 76, 1)",
+                            data: [
+                                                                    { x: 0.99162 , y: 59.76696300506592, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.200, leaf_size=24)" },
+                                                                    { x: 0.99372 , y: 60.489378213882446, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.200, leaf_size=24)" },
+                                                                    { x: 0.9997199999999999 , y: 86.97181105613708, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.320, leaf_size=36)" },
+                                                                    { x: 1.0 , y: 102.18788743019104, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.240, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Build time (s) tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Build time (s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Index size (kB)</h3>
+            <div id="RecallIndex size (kB)">
+            <canvas id="chartRecallIndex size (kB)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallIndex size (kB)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 1.0 , y: 306384.0, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(nmslib)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(76, 229, 229, 1)",
+                            data: [
+                                                                    { x: 0.98159 , y: 393488.0, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.99855 , y: 398400.0, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.99925 , y: 403676.0, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9999800000000001 , y: 452136.0, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99999 , y: 471964.0, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-HNSWIndex",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(229, 204, 229, 1)",
+                            data: [
+                                                                    { x: 0.9726800000000001 , y: 228764.0, label: "Hora(hora-search) 1624419857.5831711" },
+                                                                    { x: 0.9727 , y: 228828.0, label: "Hora(hora-search) 1624435552.6150463" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-SGGIndex",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(76, 76, 153, 1)",
+                            data: [
+                                                                    { x: 0.87562 , y: 211852.0, label: "Hora(hora-search) 1624441226.4472382" },
+                                                                    { x: 0.89001 , y: 211880.0, label: "Hora(hora-search) 1624418982.0830588" },
+                                                                    { x: 0.9324 , y: 216776.0, label: "Hora(hora-search) 1624448475.7712102" },
+                                                            ]
+                        },
+                                                {
+                            label: "pynndescent",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(127, 229, 76, 1)",
+                            data: [
+                                                                    { x: 0.9361599999999999 , y: 818772.0, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.120, leaf_size=24)" },
+                                                                    { x: 0.99372 , y: 839224.0, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.200, leaf_size=24)" },
+                                                                    { x: 0.9997299999999999 , y: 960368.0, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.320, leaf_size=36)" },
+                                                                    { x: 1.0 , y: 1003660.0, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.240, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Index size (kB) tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Index size (kB) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Distance computations</h3>
+            <div id="RecallDistance computations">
+            <canvas id="chartRecallDistance computations" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallDistance computations");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(nmslib)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(76, 229, 229, 1)",
+                            data: [
+                                                            ]
+                        },
+                                                {
+                            label: "hora-HNSWIndex",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(229, 204, 229, 1)",
+                            data: [
+                                                            ]
+                        },
+                                                {
+                            label: "hora-SGGIndex",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(76, 76, 153, 1)",
+                            data: [
+                                                            ]
+                        },
+                                                {
+                            label: "pynndescent",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(127, 229, 76, 1)",
+                            data: [
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Distance computations tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Distance computations '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Relative Error/Queries per second (1/s)</h3>
+            <div id="Relative ErrorQueries per second (1/s)">
+            <canvas id="chartRelative ErrorQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRelative ErrorQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 1.005820096598528 , y: 2141.023935566078, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 1.0056036963951234 , y: 2046.6107430395639, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 1.0049139508668592 , y: 1616.9100028511684, label: "Annoy(n_trees=200, search_k=100)" },
+                                                                    { x: 1.0048036625931978 , y: 1502.4329303124034, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 1.0022748028180786 , y: 1263.1487141692608, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 1.0013146586895298 , y: 1209.2925871441334, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 1.0011897679299653 , y: 1033.1761988039673, label: "Annoy(n_trees=200, search_k=2000)" },
+                                                                    { x: 1.000598859949115 , y: 937.0390265223143, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 1.000569622309024 , y: 810.7584213215016, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 1.000538202304401 , y: 612.4257314230052, label: "Annoy(n_trees=400, search_k=4000)" },
+                                                                    { x: 1.000214340544626 , y: 593.7435320584608, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 1.0002033597468838 , y: 560.7972991585, label: "Annoy(n_trees=200, search_k=10000)" },
+                                                                    { x: 1.000076806773626 , y: 395.4092784273527, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 1.0000397391936249 , y: 251.93110809476408, label: "Annoy(n_trees=200, search_k=40000)" },
+                                                                    { x: 1.0000263978466506 , y: 247.45394744717512, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 1.0000085190021566 , y: 128.07729899631747, label: "Annoy(n_trees=400, search_k=100000)" },
+                                                                    { x: 1.0000083331392902 , y: 81.7725554580599, label: "Annoy(n_trees=200, search_k=100000)" },
+                                                                    { x: 1.0000027176714283 , y: 76.25281304354655, label: "Annoy(n_trees=100, search_k=100000)" },
+                                                                    { x: 1.0000003220140985 , y: 40.25680521288802, label: "Annoy(n_trees=400, search_k=400000)" },
+                                                                    { x: 1.000000223435517 , y: 33.871464600207645, label: "Annoy(n_trees=100, search_k=200000)" },
+                                                                    { x: 1.0 , y: 17.957622373008192, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(nmslib)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(76, 229, 229, 1)",
+                            data: [
+                                                                    { x: 1.0429637772410871 , y: 16065.8029657146, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 1.0193840975007742 , y: 14943.717502264197, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 1.0110837655054583 , y: 13125.949598629793, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 1.00816250541405 , y: 12239.771237338344, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 1.00376832333308 , y: 9947.621056785794, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 1.0027834970916607 , y: 9192.193207036406, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 1.0013677631446563 , y: 7189.565361079776, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 1.000499676710459 , y: 5074.973241559687, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 1.0002129623423799 , y: 4502.399602907261, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.0001101734593076 , y: 4453.062559189376, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.0001081938896623 , y: 3590.2649070793113, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.0001076560598978 , y: 3407.8020335644983, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 1.0000367891137985 , y: 3369.4874934316226, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.0000240578337887 , y: 2803.4124828901636, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.0000156822239612 , y: 2366.9316772107127, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.0000110232488413 , y: 2259.9591157012505, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.00001026168197 , y: 2037.6526446586013, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.0000085013479703 , y: 1857.321712142288, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.00000847932957 , y: 1774.924788041141, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.0000067655593625 , y: 1445.2907010140802, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.0000055891865627 , y: 1246.3851803478383, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.0000032254753517 , y: 1195.985009468669, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.0000024585694012 , y: 789.9041966880854, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.0000023127083961 , y: 653.7134184701397, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-HNSWIndex",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(229, 204, 229, 1)",
+                            data: [
+                                                                    { x: 1.000994763198224 , y: 3578.422431072584, label: "Hora(hora-search) 1624425472.6833906" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-SGGIndex",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(76, 76, 153, 1)",
+                            data: [
+                                                                    { x: 1.0110565293223508 , y: 4055.3851592169594, label: "Hora(hora-search) 1624441226.4472382" },
+                                                                    { x: 1.008255968373606 , y: 3336.8935422742393, label: "Hora(hora-search) 1624418982.0830588" },
+                                                                    { x: 1.005322195636127 , y: 1883.3404967527526, label: "Hora(hora-search) 1624448475.7712102" },
+                                                            ]
+                        },
+                                                {
+                            label: "pynndescent",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(127, 229, 76, 1)",
+                            data: [
+                                                                    { x: 1.0227205103244343 , y: 13715.746229342441, label: "PyNNDescent(n_neighbors=10, pruning_mult=0.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 1.012255945480034 , y: 11807.121537258003, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.010, leaf_size=24)" },
+                                                                    { x: 1.0097431744089864 , y: 11667.571204162412, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.030, leaf_size=24)" },
+                                                                    { x: 1.0085725551122355 , y: 11598.387515132947, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 1.0081913806075915 , y: 11574.1432401996, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 1.006052811970671 , y: 10533.46871316912, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.020, leaf_size=24)" },
+                                                                    { x: 1.0049369011524314 , y: 10455.209876740166, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 1.0040195325605137 , y: 9936.88144790291, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.040, leaf_size=24)" },
+                                                                    { x: 1.0029469495985206 , y: 9633.567402407481, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.060, leaf_size=24)" },
+                                                                    { x: 1.0024632331299643 , y: 8880.574040707092, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 1.0022674077465825 , y: 8808.376465488745, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.040, leaf_size=36)" },
+                                                                    { x: 1.0022017645019217 , y: 8695.536075981121, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 1.0017060986951993 , y: 8199.108563068645, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.100, leaf_size=24)" },
+                                                                    { x: 1.0009876762892025 , y: 7493.049244559224, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.080, leaf_size=36)" },
+                                                                    { x: 1.000834435178657 , y: 6828.603882904933, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.140, leaf_size=24)" },
+                                                                    { x: 1.0004594423036894 , y: 6371.127910186064, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.120, leaf_size=36)" },
+                                                                    { x: 1.00034027542404 , y: 5981.780992549985, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 1.0002172937634586 , y: 5679.666979517713, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 1.0001655972742955 , y: 5087.812999426844, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.020, leaf_size=36)" },
+                                                                    { x: 1.0000895255953917 , y: 4936.336583382323, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.200, leaf_size=36)" },
+                                                                    { x: 1.0000454440887074 , y: 4173.899890385848, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.240, leaf_size=36)" },
+                                                                    { x: 1.0000394846566756 , y: 3949.963596858302, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.080, leaf_size=36)" },
+                                                                    { x: 1.0000155868945368 , y: 3400.471150828503, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.120, leaf_size=36)" },
+                                                                    { x: 1.0000138792291635 , y: 3083.933225405945, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.320, leaf_size=36)" },
+                                                                    { x: 1.0000090295127293 , y: 3008.3952099261523, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 1.0000082997671 , y: 2700.1627383562636, label: "PyNNDescent(n_neighbors=60, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.120, leaf_size=48)" },
+                                                                    { x: 1.0000042015066262 , y: 2599.0625586938754, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.200, leaf_size=36)" },
+                                                                    { x: 1.0000029352012074 , y: 2405.7398605184985, label: "PyNNDescent(n_neighbors=60, pruning_mult=3.00, diversify_prob=0.000, epsilon=0.120, leaf_size=48)" },
+                                                                    { x: 1.0 , y: 2164.3037440514986, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.240, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Relative Error-Queries per second (1/s) tradeoff - up and to the left is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Relative Error   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Candidates generated</h3>
+            <div id="RecallCandidates generated">
+            <canvas id="chartRecallCandidates generated" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallCandidates generated");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 1.0 , y: 10.0, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(nmslib)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(76, 229, 229, 1)",
+                            data: [
+                                                                    { x: 0.1441 , y: 3.5205, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.29186 , y: 4.9047, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.36416 , y: 5.9329, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.52053 , y: 9.9926, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.52969 , y: 9.9966, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.6065 , y: 9.9992, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.99999 , y: 10.0, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-HNSWIndex",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(229, 204, 229, 1)",
+                            data: [
+                                                                    { x: 0.9727 , y: 10.0, label: "Hora(hora-search) 1624435552.6150463" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-SGGIndex",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(76, 76, 153, 1)",
+                            data: [
+                                                                    { x: 0.9324 , y: 10.0, label: "Hora(hora-search) 1624448475.7712102" },
+                                                            ]
+                        },
+                                                {
+                            label: "pynndescent",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(127, 229, 76, 1)",
+                            data: [
+                                                                    { x: 1.0 , y: 10.0, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.240, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Candidates generated tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Candidates generated '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Index size (kB)/Queries per second (s)</h3>
+            <div id="RecallIndex size (kB)/Queries per second (s)">
+            <canvas id="chartRecallIndex size (kB)/Queries per second (s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallIndex size (kB)/Queries per second (s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.90079 , y: 143.101622971344, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.9033 , y: 149.7031133262634, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.9134399999999999 , y: 246.45280151481626, label: "Annoy(n_trees=200, search_k=100)" },
+                                                                    { x: 0.9729699999999999 , y: 253.3580402767181, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.98694 , y: 326.97037298126224, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 0.9878199999999999 , y: 491.5052246395111, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 0.99544 , y: 516.0207791027069, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 0.9983700000000001 , y: 774.8528340522766, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 0.9994400000000001 , y: 1238.145534394455, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 0.99993 , y: 4018.0025860164637, label: "Annoy(n_trees=100, search_k=100000)" },
+                                                                    { x: 0.99999 , y: 9045.490167499924, label: "Annoy(n_trees=100, search_k=200000)" },
+                                                                    { x: 1.0 , y: 17061.50144133339, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(nmslib)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(76, 229, 229, 1)",
+                            data: [
+                                                                    { x: 0.29186 , y: 16.45956642150879, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.52053 , y: 19.65610610427856, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.52969 , y: 20.947871589660643, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.6065 , y: 24.252605355072017, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.70079 , y: 24.49227099571228, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.74917 , y: 26.66003288269043, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.80884 , y: 30.754041600322722, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.87843 , y: 32.54962795257568, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.91876 , y: 40.58015456113815, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.95473 , y: 43.341125564575194, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.97697 , y: 55.413641853332514, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.99125 , y: 78.50287696838379, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9962199999999999 , y: 96.76216038770676, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9968299999999999 , y: 105.9863843650818, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99694 , y: 109.36727348327636, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9981 , y: 118.45641150045395, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9981099999999999 , y: 125.93388279190063, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99903 , y: 140.06996640291214, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99942 , y: 168.35339176111222, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.9996 , y: 199.3990804821968, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99975 , y: 208.8374062703133, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99978 , y: 231.62142047967907, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99982 , y: 254.10998908510211, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99983 , y: 265.9064785054207, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.9998900000000001 , y: 326.5529901139259, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99992 , y: 378.66624815635674, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.9999399999999999 , y: 394.62367526636126, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99997 , y: 597.4952430672646, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.9999800000000001 , y: 620.8943101816178, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99999 , y: 721.973859897995, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-HNSWIndex",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(229, 204, 229, 1)",
+                            data: [
+                                                                    { x: 0.97269 , y: 63.96226393299102, label: "Hora(hora-search) 1624425472.6833906" },
+                                                                    { x: 0.9727 , y: 64.0498470439911, label: "Hora(hora-search) 1624435552.6150463" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-SGGIndex",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(76, 76, 153, 1)",
+                            data: [
+                                                                    { x: 0.87562 , y: 52.23967432994842, label: "Hora(hora-search) 1624441226.4472382" },
+                                                                    { x: 0.89001 , y: 63.496182097434996, label: "Hora(hora-search) 1624418982.0830588" },
+                                                                    { x: 0.9324 , y: 115.10186308517457, label: "Hora(hora-search) 1624448475.7712102" },
+                                                            ]
+                        },
+                                                {
+                            label: "pynndescent",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(127, 229, 76, 1)",
+                            data: [
+                                                                    { x: 0.71236 , y: 60.293620643901825, label: "PyNNDescent(n_neighbors=10, pruning_mult=0.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.81663 , y: 69.3456061594963, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.010, leaf_size=24)" },
+                                                                    { x: 0.84398 , y: 70.1750163485527, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.030, leaf_size=24)" },
+                                                                    { x: 0.8630599999999999 , y: 72.50852029247284, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.90116 , y: 80.52118802089691, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.020, leaf_size=24)" },
+                                                                    { x: 0.92303 , y: 84.45547070274354, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.040, leaf_size=24)" },
+                                                                    { x: 0.9411099999999999 , y: 87.11456150608063, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.060, leaf_size=24)" },
+                                                                    { x: 0.9520899999999999 , y: 95.66183403301238, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 0.95533 , y: 96.51204855766296, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 0.9667 , y: 102.35551749858857, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.100, leaf_size=24)" },
+                                                                    { x: 0.9724299999999999 , y: 114.64018622055053, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.120, leaf_size=24)" },
+                                                                    { x: 0.9757199999999999 , y: 115.3601256427765, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.120, leaf_size=24)" },
+                                                                    { x: 0.98238 , y: 122.89832803173064, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.140, leaf_size=24)" },
+                                                                    { x: 0.98711 , y: 132.1095744819641, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.160, leaf_size=24)" },
+                                                                    { x: 0.99162 , y: 151.79202040462494, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.200, leaf_size=24)" },
+                                                                    { x: 0.99372 , y: 156.01898201351165, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.200, leaf_size=24)" },
+                                                                    { x: 0.99445 , y: 170.82902985315323, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 0.99451 , y: 174.0322858730316, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 0.9976 , y: 194.5507531299591, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.200, leaf_size=36)" },
+                                                                    { x: 0.99778 , y: 214.4891855840683, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.040, leaf_size=36)" },
+                                                                    { x: 0.9987999999999999 , y: 230.0888917369843, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.240, leaf_size=36)" },
+                                                                    { x: 0.99915 , y: 254.09348096227646, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.080, leaf_size=36)" },
+                                                                    { x: 0.99935 , y: 287.8489941145897, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.280, leaf_size=36)" },
+                                                                    { x: 0.99975 , y: 295.15321715211866, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.120, leaf_size=36)" },
+                                                                    { x: 0.9998699999999999 , y: 333.6197307748795, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 0.99997 , y: 386.1623094229698, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.200, leaf_size=36)" },
+                                                                    { x: 1.0 , y: 463.7334305586815, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.240, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Index size (kB)/Queries per second (s) tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Index size (kB)/Queries per second (s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Epsilon 0.01 Recall/Queries per second (1/s)</h3>
+            <div id="Epsilon 0.01 RecallQueries per second (1/s)">
+            <canvas id="chartEpsilon 0.01 RecallQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartEpsilon 0.01 RecallQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.9487500000000001 , y: 2141.023935566078, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.9505000000000001 , y: 2046.6107430395639, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.95784 , y: 1616.9100028511684, label: "Annoy(n_trees=200, search_k=100)" },
+                                                                    { x: 0.95885 , y: 1502.4329303124034, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 0.98368 , y: 1263.1487141692608, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 0.99164 , y: 1209.2925871441334, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.99262 , y: 1033.1761988039673, label: "Annoy(n_trees=200, search_k=2000)" },
+                                                                    { x: 0.9968199999999999 , y: 937.0390265223143, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 0.9971099999999999 , y: 810.7584213215016, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 0.9972 , y: 612.4257314230052, label: "Annoy(n_trees=400, search_k=4000)" },
+                                                                    { x: 0.9991300000000001 , y: 593.7435320584608, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 0.99918 , y: 560.7972991585, label: "Annoy(n_trees=200, search_k=10000)" },
+                                                                    { x: 0.99975 , y: 395.4092784273527, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 0.9998699999999999 , y: 251.93110809476408, label: "Annoy(n_trees=200, search_k=40000)" },
+                                                                    { x: 0.99997 , y: 247.45394744717512, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 0.99999 , y: 128.07729899631747, label: "Annoy(n_trees=400, search_k=100000)" },
+                                                                    { x: 1.0 , y: 81.7725554580599, label: "Annoy(n_trees=200, search_k=100000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(nmslib)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(76, 229, 229, 1)",
+                            data: [
+                                                                    { x: 0.31707 , y: 24204.76881331362, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.39864 , y: 20444.790636438127, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.58441 , y: 20018.613957031353, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.59524 , y: 19018.63863804858, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.68113 , y: 16644.64473362562, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.77758 , y: 16065.8029657146, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.8305300000000001 , y: 14943.717502264197, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.8885799999999999 , y: 13125.949598629793, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9426 , y: 12239.771237338344, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9704499999999999 , y: 9947.621056785794, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9865299999999999 , y: 9192.193207036406, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.99472 , y: 7189.565361079776, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9986700000000001 , y: 5074.973241559687, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9993299999999999 , y: 4502.399602907261, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.99976 , y: 4453.062559189376, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 0.9999800000000001 , y: 3369.4874934316226, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.0 , y: 2803.4124828901636, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-HNSWIndex",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(229, 204, 229, 1)",
+                            data: [
+                                                                    { x: 0.99466 , y: 3578.422431072584, label: "Hora(hora-search) 1624425472.6833906" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-SGGIndex",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(76, 76, 153, 1)",
+                            data: [
+                                                                    { x: 0.92956 , y: 4055.3851592169594, label: "Hora(hora-search) 1624441226.4472382" },
+                                                                    { x: 0.94542 , y: 3336.8935422742393, label: "Hora(hora-search) 1624418982.0830588" },
+                                                                    { x: 0.9700599999999999 , y: 1883.3404967527526, label: "Hora(hora-search) 1624448475.7712102" },
+                                                            ]
+                        },
+                                                {
+                            label: "pynndescent",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(127, 229, 76, 1)",
+                            data: [
+                                                                    { x: 0.7924800000000001 , y: 13715.746229342441, label: "PyNNDescent(n_neighbors=10, pruning_mult=0.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.89092 , y: 11807.121537258003, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.010, leaf_size=24)" },
+                                                                    { x: 0.9148999999999999 , y: 11667.571204162412, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.030, leaf_size=24)" },
+                                                                    { x: 0.9268700000000001 , y: 11598.387515132947, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.92974 , y: 11574.1432401996, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.95505 , y: 10533.46871316912, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.020, leaf_size=24)" },
+                                                                    { x: 0.95869 , y: 10455.209876740166, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 0.97126 , y: 9936.88144790291, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.040, leaf_size=24)" },
+                                                                    { x: 0.98074 , y: 9633.567402407481, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.060, leaf_size=24)" },
+                                                                    { x: 0.98573 , y: 8880.574040707092, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 0.9869300000000001 , y: 8695.536075981121, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 0.9913000000000001 , y: 8199.108563068645, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.100, leaf_size=24)" },
+                                                                    { x: 0.9945600000000001 , y: 7493.049244559224, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.080, leaf_size=36)" },
+                                                                    { x: 0.99552 , y: 6843.673373219779, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.140, leaf_size=24)" },
+                                                                    { x: 0.9961399999999999 , y: 6828.603882904933, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.140, leaf_size=24)" },
+                                                                    { x: 0.9979699999999999 , y: 6371.127910186064, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.120, leaf_size=36)" },
+                                                                    { x: 0.99877 , y: 5981.780992549985, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 0.9992300000000001 , y: 5679.666979517713, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 0.99946 , y: 5087.812999426844, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.020, leaf_size=36)" },
+                                                                    { x: 0.99978 , y: 4936.336583382323, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.200, leaf_size=36)" },
+                                                                    { x: 0.99992 , y: 4173.899890385848, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.240, leaf_size=36)" },
+                                                                    { x: 1.0 , y: 3400.471150828503, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.120, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Epsilon 0.01 Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Epsilon 0.01 Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Epsilon 0.1 Recall/Queries per second (1/s)</h3>
+            <div id="Epsilon 0.1 RecallQueries per second (1/s)">
+            <canvas id="chartEpsilon 0.1 RecallQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartEpsilon 0.1 RecallQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.999 , y: 2141.023935566078, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.99909 , y: 2046.6107430395639, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.99953 , y: 1616.9100028511684, label: "Annoy(n_trees=200, search_k=100)" },
+                                                                    { x: 0.99957 , y: 1502.4329303124034, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 0.9998799999999999 , y: 1263.1487141692608, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 1.0 , y: 1209.2925871441334, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(nmslib)",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(76, 229, 229, 1)",
+                            data: [
+                                                                    { x: 0.45522999999999997 , y: 24204.76881331362, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.56578 , y: 20444.790636438127, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.87285 , y: 20018.613957031353, label: "Nmslib(method_name=hnsw, index_param=['M=4', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9333 , y: 19018.63863804858, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9723599999999999 , y: 16644.64473362562, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9911 , y: 14943.717502264197, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.99788 , y: 13125.949598629793, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.9994999999999999 , y: 9947.621056785794, label: "Nmslib(method_name=hnsw, index_param=['M=12', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.99982 , y: 5074.973241559687, label: "Nmslib(method_name=hnsw, index_param=['M=8', 'post=0', 'efConstruction=400'])" },
+                                                                    { x: 0.99993 , y: 4502.399602907261, label: "Nmslib(method_name=hnsw, index_param=['M=20', 'post=2', 'efConstruction=400'])" },
+                                                                    { x: 1.0 , y: 4453.062559189376, label: "Nmslib(method_name=hnsw, index_param=['M=32', 'post=2', 'efConstruction=400'])" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-HNSWIndex",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(229, 204, 229, 1)",
+                            data: [
+                                                                    { x: 1.0 , y: 3578.422431072584, label: "Hora(hora-search) 1624425472.6833906" },
+                                                            ]
+                        },
+                                                {
+                            label: "hora-SGGIndex",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(76, 76, 153, 1)",
+                            data: [
+                                                                    { x: 0.9935700000000001 , y: 4055.3851592169594, label: "Hora(hora-search) 1624441226.4472382" },
+                                                                    { x: 0.99802 , y: 3336.8935422742393, label: "Hora(hora-search) 1624418982.0830588" },
+                                                                    { x: 0.9980399999999999 , y: 2484.8328949546385, label: "Hora(hora-search) 1624424661.092704" },
+                                                                    { x: 0.99946 , y: 1883.3404967527526, label: "Hora(hora-search) 1624448475.7712102" },
+                                                            ]
+                        },
+                                                {
+                            label: "pynndescent",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(127, 229, 76, 1)",
+                            data: [
+                                                                    { x: 0.98756 , y: 13715.746229342441, label: "PyNNDescent(n_neighbors=10, pruning_mult=0.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.9942 , y: 11807.121537258003, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.010, leaf_size=24)" },
+                                                                    { x: 0.9952799999999999 , y: 11789.508716127295, label: "PyNNDescent(n_neighbors=10, pruning_mult=0.50, diversify_prob=1.000, epsilon=0.060, leaf_size=24)" },
+                                                                    { x: 0.9955 , y: 11667.571204162412, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.030, leaf_size=24)" },
+                                                                    { x: 0.9967599999999999 , y: 11598.387515132947, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.99687 , y: 11574.1432401996, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.9976499999999999 , y: 10533.46871316912, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.020, leaf_size=24)" },
+                                                                    { x: 0.9986700000000001 , y: 10455.209876740166, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 0.9989100000000001 , y: 10217.049055576084, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 0.99939 , y: 9633.567402407481, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.060, leaf_size=24)" },
+                                                                    { x: 0.99954 , y: 9221.996098635225, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.020, leaf_size=36)" },
+                                                                    { x: 0.9997 , y: 8808.376465488745, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.040, leaf_size=36)" },
+                                                                    { x: 0.9999 , y: 7493.049244559224, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.080, leaf_size=36)" },
+                                                                    { x: 1.0 , y: 6371.127910186064, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.120, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Epsilon 0.1 Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Epsilon 0.1 Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                        <hr />
+                                            <hr />
+        
+            <div id="contact">
+            <h2>Contact</h2>
+            <p>ANN-Benchmarks has been developed by Martin Aumueller (maau@itu.dk), Erik Bernhardsson (mail@erikbern.com), and Alec Faitfull (alef@itu.dk). Please use
+            <a href="https://github.com/erikbern/ann-benchmarks/">Github</a> to submit your implementation or improvements.</p>
+            </div>
+        </div>
+    </body>
+</html>

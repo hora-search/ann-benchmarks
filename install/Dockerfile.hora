@@ -1,0 +1,28 @@
+FROM ann-benchmarks
+
+RUN apt-get update
+RUN apt-get install -y openssl git wget
+RUN git clone https://github.com/hora-search/hora
+RUN cd hora && git checkout initial
+RUN cd ..
+RUN git clone https://github.com/hora-search/hora-python
+RUN apt-get update && apt-get install -y build-essential curl gnupg2 tree wget lsb-release software-properties-common
+RUN bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
+ENV PATH="/root/.cargo/bin:${PATH}"
+ENV LC_MESSAGES="C cargo init"
+# RUN bash source $HOME/.cargo/env
+RUN rustup toolchain install nightly
+RUN apt-get install -y libhdf5-serial-dev
+ENV RUSTFLAGS="-C target-feature=+avx2,+fma"
+RUN pwd
+RUN ls
+RUN cd hora-python && git pull && git checkout initial && git pull
+RUN ls
+RUN cd hora-python && cd hora && cargo +nightly build --release
+# RUN pwd
+# RUN ls
+# RUN cargo +nightly build --release
+RUN cd
+RUN cp /home/app/hora-python/hora/target/release/libhora.so /home/app/hora-python/hora/target/release/hora.so 
+RUN rm -rf hora

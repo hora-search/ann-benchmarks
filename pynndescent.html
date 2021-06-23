@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>pynndescent</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style>
+            body { padding-top: 50px; }
+        </style>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+      </head>
+         <body>
+
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="index.html">ANN Benchmarks</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#datasets">Datasets</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#algorithms">Algorithms</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#contact">Contact</a></li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </nav>
+
+                    <div class="container">
+                                                        <h2>Plots for pynndescent</h2>
+                                                                <h3>Recall/Queries per second (1/s)</h3>
+            <div id="RecallQueries per second (1/s)">
+            <canvas id="chartRecallQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.71236 , y: 13715.746229342441, label: "PyNNDescent(n_neighbors=10, pruning_mult=0.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.81663 , y: 11807.121537258003, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.010, leaf_size=24)" },
+                                                                    { x: 0.84398 , y: 11667.571204162412, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.030, leaf_size=24)" },
+                                                                    { x: 0.8590899999999999 , y: 11598.387515132947, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.8630599999999999 , y: 11574.1432401996, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.8976900000000001 , y: 10533.46871316912, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.020, leaf_size=24)" },
+                                                                    { x: 0.90107 , y: 10455.209876740166, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 0.90116 , y: 10422.399627067152, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.020, leaf_size=24)" },
+                                                                    { x: 0.92303 , y: 9936.88144790291, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.040, leaf_size=24)" },
+                                                                    { x: 0.9411099999999999 , y: 9633.567402407481, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.060, leaf_size=24)" },
+                                                                    { x: 0.9520899999999999 , y: 8880.574040707092, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 0.95533 , y: 8695.536075981121, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 0.9667 , y: 8199.108563068645, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.100, leaf_size=24)" },
+                                                                    { x: 0.9752000000000001 , y: 7493.049244559224, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.080, leaf_size=36)" },
+                                                                    { x: 0.9757199999999999 , y: 7274.818706411054, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.120, leaf_size=24)" },
+                                                                    { x: 0.97948 , y: 6843.673373219779, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.140, leaf_size=24)" },
+                                                                    { x: 0.98238 , y: 6828.603882904933, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.140, leaf_size=24)" },
+                                                                    { x: 0.9881 , y: 6371.127910186064, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.120, leaf_size=36)" },
+                                                                    { x: 0.99184 , y: 5981.780992549985, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 0.99445 , y: 5679.666979517713, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 0.99451 , y: 5518.332389776537, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 0.99596 , y: 5087.812999426844, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.020, leaf_size=36)" },
+                                                                    { x: 0.9976 , y: 4936.336583382323, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.200, leaf_size=36)" },
+                                                                    { x: 0.99778 , y: 4679.303514846061, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.040, leaf_size=36)" },
+                                                                    { x: 0.9987999999999999 , y: 4173.899890385848, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.240, leaf_size=36)" },
+                                                                    { x: 0.99915 , y: 3949.963596858302, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.080, leaf_size=36)" },
+                                                                    { x: 0.99975 , y: 3400.471150828503, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.120, leaf_size=36)" },
+                                                                    { x: 0.9998699999999999 , y: 3008.3952099261523, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 0.9999 , y: 2700.1627383562636, label: "PyNNDescent(n_neighbors=60, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.120, leaf_size=48)" },
+                                                                    { x: 0.99997 , y: 2599.0625586938754, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.200, leaf_size=36)" },
+                                                                    { x: 1.0 , y: 2164.3037440514986, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.240, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Build time (s)</h3>
+            <div id="RecallBuild time (s)">
+            <canvas id="chartRecallBuild time (s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallBuild time (s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.99162 , y: 59.76696300506592, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.200, leaf_size=24)" },
+                                                                    { x: 0.99372 , y: 60.489378213882446, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.200, leaf_size=24)" },
+                                                                    { x: 0.9997199999999999 , y: 86.97181105613708, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.320, leaf_size=36)" },
+                                                                    { x: 1.0 , y: 102.18788743019104, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.240, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Build time (s) tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Build time (s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Index size (kB)</h3>
+            <div id="RecallIndex size (kB)">
+            <canvas id="chartRecallIndex size (kB)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallIndex size (kB)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.9361599999999999 , y: 818772.0, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.120, leaf_size=24)" },
+                                                                    { x: 0.99372 , y: 839224.0, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.200, leaf_size=24)" },
+                                                                    { x: 0.9997299999999999 , y: 960368.0, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.320, leaf_size=36)" },
+                                                                    { x: 1.0 , y: 1003660.0, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.240, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Index size (kB) tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Index size (kB) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Distance computations</h3>
+            <div id="RecallDistance computations">
+            <canvas id="chartRecallDistance computations" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallDistance computations");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Distance computations tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Distance computations '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Relative Error/Queries per second (1/s)</h3>
+            <div id="Relative ErrorQueries per second (1/s)">
+            <canvas id="chartRelative ErrorQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRelative ErrorQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 1.0227205103244343 , y: 13715.746229342441, label: "PyNNDescent(n_neighbors=10, pruning_mult=0.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 1.012255945480034 , y: 11807.121537258003, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.010, leaf_size=24)" },
+                                                                    { x: 1.0097431744089864 , y: 11667.571204162412, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.030, leaf_size=24)" },
+                                                                    { x: 1.0085725551122355 , y: 11598.387515132947, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 1.0081913806075915 , y: 11574.1432401996, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 1.006052811970671 , y: 10533.46871316912, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.020, leaf_size=24)" },
+                                                                    { x: 1.0049369011524314 , y: 10455.209876740166, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 1.0040195325605137 , y: 9936.88144790291, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.040, leaf_size=24)" },
+                                                                    { x: 1.0029469495985206 , y: 9633.567402407481, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.060, leaf_size=24)" },
+                                                                    { x: 1.0024632331299643 , y: 8880.574040707092, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 1.0022674077465825 , y: 8808.376465488745, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.040, leaf_size=36)" },
+                                                                    { x: 1.0022017645019217 , y: 8695.536075981121, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 1.0017060986951993 , y: 8199.108563068645, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.100, leaf_size=24)" },
+                                                                    { x: 1.0009876762892025 , y: 7493.049244559224, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.080, leaf_size=36)" },
+                                                                    { x: 1.000834435178657 , y: 6828.603882904933, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.140, leaf_size=24)" },
+                                                                    { x: 1.0004594423036894 , y: 6371.127910186064, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.120, leaf_size=36)" },
+                                                                    { x: 1.00034027542404 , y: 5981.780992549985, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 1.0002172937634586 , y: 5679.666979517713, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 1.0001655972742955 , y: 5087.812999426844, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.020, leaf_size=36)" },
+                                                                    { x: 1.0000895255953917 , y: 4936.336583382323, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.200, leaf_size=36)" },
+                                                                    { x: 1.0000454440887074 , y: 4173.899890385848, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.240, leaf_size=36)" },
+                                                                    { x: 1.0000394846566756 , y: 3949.963596858302, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.080, leaf_size=36)" },
+                                                                    { x: 1.0000155868945368 , y: 3400.471150828503, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.120, leaf_size=36)" },
+                                                                    { x: 1.0000138792291635 , y: 3083.933225405945, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.320, leaf_size=36)" },
+                                                                    { x: 1.0000090295127293 , y: 3008.3952099261523, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 1.0000082997671 , y: 2700.1627383562636, label: "PyNNDescent(n_neighbors=60, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.120, leaf_size=48)" },
+                                                                    { x: 1.0000042015066262 , y: 2599.0625586938754, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.200, leaf_size=36)" },
+                                                                    { x: 1.0000029352012074 , y: 2405.7398605184985, label: "PyNNDescent(n_neighbors=60, pruning_mult=3.00, diversify_prob=0.000, epsilon=0.120, leaf_size=48)" },
+                                                                    { x: 1.0 , y: 2164.3037440514986, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.240, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Relative Error-Queries per second (1/s) tradeoff - up and to the left is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Relative Error   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Candidates generated</h3>
+            <div id="RecallCandidates generated">
+            <canvas id="chartRecallCandidates generated" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallCandidates generated");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 1.0 , y: 10.0, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.240, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Candidates generated tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Candidates generated '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Index size (kB)/Queries per second (s)</h3>
+            <div id="RecallIndex size (kB)/Queries per second (s)">
+            <canvas id="chartRecallIndex size (kB)/Queries per second (s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallIndex size (kB)/Queries per second (s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.71236 , y: 60.293620643901825, label: "PyNNDescent(n_neighbors=10, pruning_mult=0.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.81663 , y: 69.3456061594963, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.010, leaf_size=24)" },
+                                                                    { x: 0.84398 , y: 70.1750163485527, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.030, leaf_size=24)" },
+                                                                    { x: 0.8630599999999999 , y: 72.50852029247284, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.90116 , y: 80.52118802089691, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.020, leaf_size=24)" },
+                                                                    { x: 0.92303 , y: 84.45547070274354, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.040, leaf_size=24)" },
+                                                                    { x: 0.9411099999999999 , y: 87.11456150608063, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.060, leaf_size=24)" },
+                                                                    { x: 0.9520899999999999 , y: 95.66183403301238, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 0.95533 , y: 96.51204855766296, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 0.9667 , y: 102.35551749858857, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.100, leaf_size=24)" },
+                                                                    { x: 0.9724299999999999 , y: 114.64018622055053, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.120, leaf_size=24)" },
+                                                                    { x: 0.9757199999999999 , y: 115.3601256427765, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.120, leaf_size=24)" },
+                                                                    { x: 0.98238 , y: 122.89832803173064, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.140, leaf_size=24)" },
+                                                                    { x: 0.98711 , y: 132.1095744819641, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.160, leaf_size=24)" },
+                                                                    { x: 0.99162 , y: 151.79202040462494, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.200, leaf_size=24)" },
+                                                                    { x: 0.99372 , y: 156.01898201351165, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.200, leaf_size=24)" },
+                                                                    { x: 0.99445 , y: 170.82902985315323, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 0.99451 , y: 174.0322858730316, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 0.9976 , y: 194.5507531299591, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.200, leaf_size=36)" },
+                                                                    { x: 0.99778 , y: 214.4891855840683, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.040, leaf_size=36)" },
+                                                                    { x: 0.9987999999999999 , y: 230.0888917369843, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.240, leaf_size=36)" },
+                                                                    { x: 0.99915 , y: 254.09348096227646, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.080, leaf_size=36)" },
+                                                                    { x: 0.99935 , y: 287.8489941145897, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.280, leaf_size=36)" },
+                                                                    { x: 0.99975 , y: 295.15321715211866, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.120, leaf_size=36)" },
+                                                                    { x: 0.9998699999999999 , y: 333.6197307748795, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 0.99997 , y: 386.1623094229698, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.200, leaf_size=36)" },
+                                                                    { x: 1.0 , y: 463.7334305586815, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.240, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Index size (kB)/Queries per second (s) tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Index size (kB)/Queries per second (s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Epsilon 0.01 Recall/Queries per second (1/s)</h3>
+            <div id="Epsilon 0.01 RecallQueries per second (1/s)">
+            <canvas id="chartEpsilon 0.01 RecallQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartEpsilon 0.01 RecallQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.7924800000000001 , y: 13715.746229342441, label: "PyNNDescent(n_neighbors=10, pruning_mult=0.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.89092 , y: 11807.121537258003, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.010, leaf_size=24)" },
+                                                                    { x: 0.9148999999999999 , y: 11667.571204162412, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.030, leaf_size=24)" },
+                                                                    { x: 0.9268700000000001 , y: 11598.387515132947, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.92974 , y: 11574.1432401996, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.95505 , y: 10533.46871316912, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.020, leaf_size=24)" },
+                                                                    { x: 0.95869 , y: 10455.209876740166, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 0.97126 , y: 9936.88144790291, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.040, leaf_size=24)" },
+                                                                    { x: 0.98074 , y: 9633.567402407481, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.060, leaf_size=24)" },
+                                                                    { x: 0.98573 , y: 8880.574040707092, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 0.9869300000000001 , y: 8695.536075981121, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.080, leaf_size=24)" },
+                                                                    { x: 0.9913000000000001 , y: 8199.108563068645, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.100, leaf_size=24)" },
+                                                                    { x: 0.9945600000000001 , y: 7493.049244559224, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.080, leaf_size=36)" },
+                                                                    { x: 0.99552 , y: 6843.673373219779, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.140, leaf_size=24)" },
+                                                                    { x: 0.9961399999999999 , y: 6828.603882904933, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.140, leaf_size=24)" },
+                                                                    { x: 0.9979699999999999 , y: 6371.127910186064, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.120, leaf_size=36)" },
+                                                                    { x: 0.99877 , y: 5981.780992549985, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 0.9992300000000001 , y: 5679.666979517713, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.160, leaf_size=36)" },
+                                                                    { x: 0.99946 , y: 5087.812999426844, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.020, leaf_size=36)" },
+                                                                    { x: 0.99978 , y: 4936.336583382323, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.200, leaf_size=36)" },
+                                                                    { x: 0.99992 , y: 4173.899890385848, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.240, leaf_size=36)" },
+                                                                    { x: 1.0 , y: 3400.471150828503, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=0.000, epsilon=0.120, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Epsilon 0.01 Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Epsilon 0.01 Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Epsilon 0.1 Recall/Queries per second (1/s)</h3>
+            <div id="Epsilon 0.1 RecallQueries per second (1/s)">
+            <canvas id="chartEpsilon 0.1 RecallQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartEpsilon 0.1 RecallQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.98756 , y: 13715.746229342441, label: "PyNNDescent(n_neighbors=10, pruning_mult=0.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.9942 , y: 11807.121537258003, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.010, leaf_size=24)" },
+                                                                    { x: 0.9952799999999999 , y: 11789.508716127295, label: "PyNNDescent(n_neighbors=10, pruning_mult=0.50, diversify_prob=1.000, epsilon=0.060, leaf_size=24)" },
+                                                                    { x: 0.9955 , y: 11667.571204162412, label: "PyNNDescent(n_neighbors=10, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.030, leaf_size=24)" },
+                                                                    { x: 0.9967599999999999 , y: 11598.387515132947, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.99687 , y: 11574.1432401996, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.000, leaf_size=24)" },
+                                                                    { x: 0.9976499999999999 , y: 10533.46871316912, label: "PyNNDescent(n_neighbors=20, pruning_mult=0.75, diversify_prob=1.000, epsilon=0.020, leaf_size=24)" },
+                                                                    { x: 0.9986700000000001 , y: 10455.209876740166, label: "PyNNDescent(n_neighbors=40, pruning_mult=2.00, diversify_prob=1.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 0.9989100000000001 , y: 10217.049055576084, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.000, leaf_size=36)" },
+                                                                    { x: 0.99939 , y: 9633.567402407481, label: "PyNNDescent(n_neighbors=20, pruning_mult=1.50, diversify_prob=1.000, epsilon=0.060, leaf_size=24)" },
+                                                                    { x: 0.99954 , y: 9221.996098635225, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.020, leaf_size=36)" },
+                                                                    { x: 0.9997 , y: 8808.376465488745, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.040, leaf_size=36)" },
+                                                                    { x: 0.9999 , y: 7493.049244559224, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.080, leaf_size=36)" },
+                                                                    { x: 1.0 , y: 6371.127910186064, label: "PyNNDescent(n_neighbors=40, pruning_mult=1.00, diversify_prob=1.000, epsilon=0.120, leaf_size=36)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Epsilon 0.1 Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Epsilon 0.1 Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                        <hr />
+                                            <hr />
+        
+            <div id="contact">
+            <h2>Contact</h2>
+            <p>ANN-Benchmarks has been developed by Martin Aumueller (maau@itu.dk), Erik Bernhardsson (mail@erikbern.com), and Alec Faitfull (alef@itu.dk). Please use
+            <a href="https://github.com/erikbern/ann-benchmarks/">Github</a> to submit your implementation or improvements.</p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>annoy</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style>
+            body { padding-top: 50px; }
+        </style>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+      </head>
+         <body>
+
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="index.html">ANN Benchmarks</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#datasets">Datasets</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#algorithms">Algorithms</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#contact">Contact</a></li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </nav>
+
+                    <div class="container">
+                                                        <h2>Plots for annoy</h2>
+                                                                <h3>Recall/Queries per second (1/s)</h3>
+            <div id="RecallQueries per second (1/s)">
+            <canvas id="chartRecallQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.90079 , y: 2141.023935566078, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.9033 , y: 2046.6107430395639, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.9134399999999999 , y: 1616.9100028511684, label: "Annoy(n_trees=200, search_k=100)" },
+                                                                    { x: 0.91482 , y: 1502.4329303124034, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 0.95555 , y: 1263.1487141692608, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 0.9729699999999999 , y: 1209.2925871441334, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.9762700000000001 , y: 1033.1761988039673, label: "Annoy(n_trees=200, search_k=2000)" },
+                                                                    { x: 0.98694 , y: 937.0390265223143, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 0.9878199999999999 , y: 810.7584213215016, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 0.9884299999999999 , y: 612.4257314230052, label: "Annoy(n_trees=400, search_k=4000)" },
+                                                                    { x: 0.99544 , y: 593.7435320584608, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 0.9983700000000001 , y: 395.4092784273527, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 0.9991099999999999 , y: 251.93110809476408, label: "Annoy(n_trees=200, search_k=40000)" },
+                                                                    { x: 0.9994400000000001 , y: 247.45394744717512, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 0.99976 , y: 128.07729899631747, label: "Annoy(n_trees=400, search_k=100000)" },
+                                                                    { x: 0.99985 , y: 81.7725554580599, label: "Annoy(n_trees=200, search_k=100000)" },
+                                                                    { x: 0.99993 , y: 76.25281304354655, label: "Annoy(n_trees=100, search_k=100000)" },
+                                                                    { x: 0.9999800000000001 , y: 40.25680521288802, label: "Annoy(n_trees=400, search_k=400000)" },
+                                                                    { x: 0.99999 , y: 33.871464600207645, label: "Annoy(n_trees=100, search_k=200000)" },
+                                                                    { x: 1.0 , y: 17.957622373008192, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Build time (s)</h3>
+            <div id="RecallBuild time (s)">
+            <canvas id="chartRecallBuild time (s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallBuild time (s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.99999 , y: 40.54649591445923, label: "Annoy(n_trees=200, search_k=400000)" },
+                                                                    { x: 1.0 , y: 55.96988081932068, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Build time (s) tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Build time (s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Index size (kB)</h3>
+            <div id="RecallIndex size (kB)">
+            <canvas id="chartRecallIndex size (kB)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallIndex size (kB)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 1.0 , y: 306384.0, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Index size (kB) tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Index size (kB) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Distance computations</h3>
+            <div id="RecallDistance computations">
+            <canvas id="chartRecallDistance computations" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallDistance computations");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Distance computations tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Distance computations '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Relative Error/Queries per second (1/s)</h3>
+            <div id="Relative ErrorQueries per second (1/s)">
+            <canvas id="chartRelative ErrorQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRelative ErrorQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 1.005820096598528 , y: 2141.023935566078, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 1.0056036963951234 , y: 2046.6107430395639, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 1.0049139508668592 , y: 1616.9100028511684, label: "Annoy(n_trees=200, search_k=100)" },
+                                                                    { x: 1.0048036625931978 , y: 1502.4329303124034, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 1.0022748028180786 , y: 1263.1487141692608, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 1.0013146586895298 , y: 1209.2925871441334, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 1.0011897679299653 , y: 1033.1761988039673, label: "Annoy(n_trees=200, search_k=2000)" },
+                                                                    { x: 1.000598859949115 , y: 937.0390265223143, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 1.000569622309024 , y: 810.7584213215016, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 1.000538202304401 , y: 612.4257314230052, label: "Annoy(n_trees=400, search_k=4000)" },
+                                                                    { x: 1.000214340544626 , y: 593.7435320584608, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 1.0002033597468838 , y: 560.7972991585, label: "Annoy(n_trees=200, search_k=10000)" },
+                                                                    { x: 1.000076806773626 , y: 395.4092784273527, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 1.0000397391936249 , y: 251.93110809476408, label: "Annoy(n_trees=200, search_k=40000)" },
+                                                                    { x: 1.0000263978466506 , y: 247.45394744717512, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 1.0000085190021566 , y: 128.07729899631747, label: "Annoy(n_trees=400, search_k=100000)" },
+                                                                    { x: 1.0000083331392902 , y: 81.7725554580599, label: "Annoy(n_trees=200, search_k=100000)" },
+                                                                    { x: 1.0000027176714283 , y: 76.25281304354655, label: "Annoy(n_trees=100, search_k=100000)" },
+                                                                    { x: 1.0000003220140985 , y: 40.25680521288802, label: "Annoy(n_trees=400, search_k=400000)" },
+                                                                    { x: 1.000000223435517 , y: 33.871464600207645, label: "Annoy(n_trees=100, search_k=200000)" },
+                                                                    { x: 1.0 , y: 17.957622373008192, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Relative Error-Queries per second (1/s) tradeoff - up and to the left is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Relative Error   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Candidates generated</h3>
+            <div id="RecallCandidates generated">
+            <canvas id="chartRecallCandidates generated" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallCandidates generated");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 1.0 , y: 10.0, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Candidates generated tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Candidates generated '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Index size (kB)/Queries per second (s)</h3>
+            <div id="RecallIndex size (kB)/Queries per second (s)">
+            <canvas id="chartRecallIndex size (kB)/Queries per second (s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartRecallIndex size (kB)/Queries per second (s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.90079 , y: 143.101622971344, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.9033 , y: 149.7031133262634, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.9134399999999999 , y: 246.45280151481626, label: "Annoy(n_trees=200, search_k=100)" },
+                                                                    { x: 0.9729699999999999 , y: 253.3580402767181, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.98694 , y: 326.97037298126224, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 0.9878199999999999 , y: 491.5052246395111, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 0.99544 , y: 516.0207791027069, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 0.9983700000000001 , y: 774.8528340522766, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 0.9994400000000001 , y: 1238.145534394455, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 0.99993 , y: 4018.0025860164637, label: "Annoy(n_trees=100, search_k=100000)" },
+                                                                    { x: 0.99999 , y: 9045.490167499924, label: "Annoy(n_trees=100, search_k=200000)" },
+                                                                    { x: 1.0 , y: 17061.50144133339, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Index size (kB)/Queries per second (s) tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Index size (kB)/Queries per second (s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Epsilon 0.01 Recall/Queries per second (1/s)</h3>
+            <div id="Epsilon 0.01 RecallQueries per second (1/s)">
+            <canvas id="chartEpsilon 0.01 RecallQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartEpsilon 0.01 RecallQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.9487500000000001 , y: 2141.023935566078, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.9505000000000001 , y: 2046.6107430395639, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.95784 , y: 1616.9100028511684, label: "Annoy(n_trees=200, search_k=100)" },
+                                                                    { x: 0.95885 , y: 1502.4329303124034, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 0.98368 , y: 1263.1487141692608, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 0.99164 , y: 1209.2925871441334, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.99262 , y: 1033.1761988039673, label: "Annoy(n_trees=200, search_k=2000)" },
+                                                                    { x: 0.9968199999999999 , y: 937.0390265223143, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 0.9971099999999999 , y: 810.7584213215016, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 0.9972 , y: 612.4257314230052, label: "Annoy(n_trees=400, search_k=4000)" },
+                                                                    { x: 0.9991300000000001 , y: 593.7435320584608, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 0.99918 , y: 560.7972991585, label: "Annoy(n_trees=200, search_k=10000)" },
+                                                                    { x: 0.99975 , y: 395.4092784273527, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 0.9998699999999999 , y: 251.93110809476408, label: "Annoy(n_trees=200, search_k=40000)" },
+                                                                    { x: 0.99997 , y: 247.45394744717512, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 0.99999 , y: 128.07729899631747, label: "Annoy(n_trees=400, search_k=100000)" },
+                                                                    { x: 1.0 , y: 81.7725554580599, label: "Annoy(n_trees=200, search_k=100000)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Epsilon 0.01 Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Epsilon 0.01 Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Epsilon 0.1 Recall/Queries per second (1/s)</h3>
+            <div id="Epsilon 0.1 RecallQueries per second (1/s)">
+            <canvas id="chartEpsilon 0.1 RecallQueries per second (1/s)" width="800" height="600"></canvas>
+            <script>
+                var ctx = document.getElementById("chartEpsilon 0.1 RecallQueries per second (1/s)");
+                var chart = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "fashion-mnist-784-euclidean (k = 10)",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.999 , y: 2141.023935566078, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.99909 , y: 2046.6107430395639, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.99953 , y: 1616.9100028511684, label: "Annoy(n_trees=200, search_k=100)" },
+                                                                    { x: 0.99957 , y: 1502.4329303124034, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 0.9998799999999999 , y: 1263.1487141692608, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 1.0 , y: 1209.2925871441334, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Epsilon 0.1 Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Epsilon 0.1 Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                        <hr />
+                                            <hr />
+        
+            <div id="contact">
+            <h2>Contact</h2>
+            <p>ANN-Benchmarks has been developed by Martin Aumueller (maau@itu.dk), Erik Bernhardsson (mail@erikbern.com), and Alec Faitfull (alef@itu.dk). Please use
+            <a href="https://github.com/erikbern/ann-benchmarks/">Github</a> to submit your implementation or improvements.</p>
+            </div>
+        </div>
+    </body>
+</html>

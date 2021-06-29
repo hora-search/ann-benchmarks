@@ -7,3 +7,7 @@ RUN cd lib-faiss && ../cmake/bin/cmake -DFAISS_OPT_LEVEL=avx2 -DCMAKE_BUILD_TYPE
 RUN cd lib-faiss && make -C build -j4
 RUN cd lib-faiss && cd build && cd faiss && cd python && python3 setup.py install && cd && rm -rf cmake
 RUN python3 -c 'import faiss; print(faiss.IndexFlatL2)'
+RUN pwd
+RUN pip3 install numpy --upgrade
+RUN pip3 install scipy --upgrade
+RUN pip3 install scikit-learn --upgrade

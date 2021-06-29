@@ -6,7 +6,7 @@ sys.path.insert(0, "/home/app/hora-python/hora/target/release")
 print(sys.path)
 import hora
 import time
-
+import numpy as np
 
 class Hora(BaseANN):
     def __init__(self, metric, params):
@@ -14,7 +14,7 @@ class Hora(BaseANN):
         self.t = params.get("index", "")
         
         # HNSW
-        self.max_item = params.get("max_item", 100000)
+        self.max_item = params.get("max_item", 10000000)
         self.n_neigh = params.get("n_neigh", 16)
         self.n_neigh0 = params.get("n_neigh0", 32)
         self.ef_build = params.get("ef_build", 500)
@@ -44,11 +44,18 @@ class Hora(BaseANN):
         else:
             self.index = hora.BruteForceIndex(int(X.shape[1]))
 
+        if self._metric == 'angular':
+            X = X / np.linalg.norm(X, axis=1)[:, np.newaxis]
+        if X.dtype != np.float32:
+            X = X.astype(np.float32)
+
         for i, x in enumerate(X):
             self.index.add([float(item) for item in x.tolist()], i)
         self.index.build(self._metric)
 
     def query(self, v, n):
+        if self._metric == 'angular':
+            v /= np.linalg.norm(v)
         return self.index.search_np(np.float32(v), n)
 
     def set_query_arguments(self, epsilon):

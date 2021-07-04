@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>hora-HNSWIndex</title>
+        <title>hnsw(faiss)</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -47,7 +47,7 @@
             </nav>
 
                     <div class="container">
-                                                        <h2>Plots for hora-HNSWIndex</h2>
+                                                        <h2>Plots for hnsw(faiss)</h2>
                                                                 <h3>Recall/Queries per second (1/s)</h3>
             <div id="RecallQueries per second (1/s)">
             <canvas id="chartRecallQueries per second (1/s)" width="800" height="600"></canvas>
@@ -62,11 +62,30 @@
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 0.93789 , y: 4390.9500640483675, label: "Hora(hora-search) 1625347679.5750475" },
-                                                                    { x: 0.9726800000000001 , y: 3700.2597492880777, label: "Hora(hora-search) 1625375150.9023478" },
-                                                                    { x: 0.9987600000000001 , y: 1787.9749283892065, label: "Hora(hora-search) 1625399463.1106868" },
-                                                                    { x: 0.99956 , y: 1203.969896274632, label: "Hora(hora-search) 1625383176.5456972" },
-                                                                    { x: 0.99978 , y: 773.5938332108719, label: "Hora(hora-search) 1625374005.0333161" },
+                                                                    { x: 0.84866 , y: 7752.902552856491, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.88994 , y: 6937.761180994625, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.95623 , y: 5872.662079116135, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.97223 , y: 4793.291980377498, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.9831099999999999 , y: 4118.1511489535515, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.9884499999999999 , y: 3898.070882870438, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.99382 , y: 3290.4608107769923, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.99605 , y: 3043.780969895748, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.9966200000000001 , y: 2798.4378722765164, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.99712 , y: 2575.607704795097, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.99716 , y: 2536.862893768915, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.9984400000000001 , y: 2095.0619661825363, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 0.9990399999999999 , y: 2028.730036426463, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 0.9994099999999999 , y: 1840.59472265051, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 0.9996600000000001 , y: 1416.5770393693076, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 0.9996700000000001 , y: 1323.2392909856992, label: "faiss ({'M': 48, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 0.99968 , y: 1303.559344837659, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 0.9997999999999999 , y: 1077.7437884547935, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 0.9998400000000001 , y: 977.5500483798597, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 0.9998699999999999 , y: 945.3082146288217, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 0.9999 , y: 637.4029060608854, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 0.9999499999999999 , y: 581.0883230964924, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 0.99997 , y: 557.4079913887372, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 0.99999 , y: 390.29546780137576, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 600)" },
                                                             ]
                         },
                                                 ]},
@@ -144,7 +163,12 @@
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 0.99978 , y: 152.5714659690857, label: "Hora(hora-search) 1625373672.7352622" },
+                                                                    { x: 0.99971 , y: 85.74588370323181, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 800)" },
+                                                                    { x: 0.9999 , y: 94.21144270896912, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 600)" },
+                                                                    { x: 0.99996 , y: 98.56084990501404, label: "faiss ({'M': 48, 'efConstruction': 500}, ef: 800)" },
+                                                                    { x: 0.99997 , y: 99.53243446350098, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 800)" },
+                                                                    { x: 0.9999800000000001 , y: 99.73939633369446, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 600)" },
+                                                                    { x: 0.99999 , y: 100.62203478813171, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 600)" },
                                                             ]
                         },
                                                 ]},
@@ -222,8 +246,9 @@
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 0.93789 , y: 198156.0, label: "Hora(hora-search) 1625347679.5750475" },
-                                                                    { x: 0.99978 , y: 198168.0, label: "Hora(hora-search) 1625373672.7352622" },
+                                                                    { x: 0.9999 , y: 184028.0, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 600)" },
+                                                                    { x: 0.99997 , y: 184072.0, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 800)" },
+                                                                    { x: 0.99999 , y: 230508.0, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 600)" },
                                                             ]
                         },
                                                 ]},
@@ -378,11 +403,30 @@
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 1.0024061355051026 , y: 4390.9500640483675, label: "Hora(hora-search) 1625347679.5750475" },
-                                                                    { x: 1.0009962831028367 , y: 3700.2597492880777, label: "Hora(hora-search) 1625375150.9023478" },
-                                                                    { x: 1.0000692988990612 , y: 1787.9749283892065, label: "Hora(hora-search) 1625399463.1106868" },
-                                                                    { x: 1.0000364401309882 , y: 1203.969896274632, label: "Hora(hora-search) 1625383176.5456972" },
-                                                                    { x: 1.00002214020135 , y: 773.5938332108719, label: "Hora(hora-search) 1625374005.0333161" },
+                                                                    { x: 1.0092386099479276 , y: 7752.902552856491, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 1.0056425510498765 , y: 6937.761180994625, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 1.002210893271809 , y: 5872.662079116135, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 1.0012138799138215 , y: 4793.291980377498, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 1.000796939320152 , y: 4118.1511489535515, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 1.0007507003171228 , y: 3898.070882870438, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 1.000571078058097 , y: 3802.826581009839, label: "faiss ({'M': 36, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 1.000297052454723 , y: 3290.4608107769923, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 1.0002107256416433 , y: 3043.780969895748, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 1.0001414409090488 , y: 2575.607704795097, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 1.0001161450426928 , y: 2095.0619661825363, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 1.000057982595207 , y: 2028.730036426463, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 1.0000456996075902 , y: 1840.59472265051, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 1.0000258087001117 , y: 1416.5770393693076, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 1.0000251376619702 , y: 1323.2392909856992, label: "faiss ({'M': 48, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 1.0000238087013023 , y: 1303.559344837659, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 1.0000231273313591 , y: 1109.4897029412466, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 1.0000120189894703 , y: 1077.7437884547935, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 1.0000100950254163 , y: 977.5500483798597, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 1.0000072830365383 , y: 945.3082146288217, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 1.000002702008794 , y: 581.0883230964924, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 1.0000024235048925 , y: 548.2469395032307, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 1.000000825137492 , y: 398.00521037790645, label: "faiss ({'M': 36, 'efConstruction': 500}, ef: 600)" },
+                                                                    { x: 1.0000001107964964 , y: 387.6926828855274, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 600)" },
                                                             ]
                         },
                                                 ]},
@@ -460,7 +504,7 @@
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 0.99978 , y: 10.0, label: "Hora(hora-search) 1625373672.7352622" },
+                                                                    { x: 0.99999 , y: 10.0, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 600)" },
                                                             ]
                         },
                                                 ]},
@@ -538,11 +582,29 @@
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 0.93789 , y: 45.12827454414368, label: "Hora(hora-search) 1625347679.5750475" },
-                                                                    { x: 0.9726800000000001 , y: 53.627586560153965, label: "Hora(hora-search) 1625375150.9023478" },
-                                                                    { x: 0.9987600000000001 , y: 110.97471046686171, label: "Hora(hora-search) 1625399463.1106868" },
-                                                                    { x: 0.99956 , y: 164.8147521080017, label: "Hora(hora-search) 1625383176.5456972" },
-                                                                    { x: 0.99978 , y: 256.1654339687347, label: "Hora(hora-search) 1625374005.0333161" },
+                                                                    { x: 0.84866 , y: 23.75110466623306, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.88994 , y: 26.5255599319458, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.95623 , y: 31.35545643854141, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.97223 , y: 38.3928207906723, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.9831099999999999 , y: 44.69772801971435, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.9884499999999999 , y: 47.2387510471344, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.99382 , y: 55.92772884492874, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.99605 , y: 60.516838045120245, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.9966200000000001 , y: 65.77669700069427, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.99698 , y: 75.01728601884841, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 0.9984400000000001 , y: 87.83892933502197, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 0.9990399999999999 , y: 90.7957178592682, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 0.9994099999999999 , y: 100.00680635166168, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 0.9996600000000001 , y: 129.9413973855972, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 0.9996700000000001 , y: 156.24989479112625, label: "faiss ({'M': 48, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 0.9997999999999999 , y: 170.91260647773743, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 0.9998400000000001 , y: 188.29931040878296, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 0.9998699999999999 , y: 243.84427896938323, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 200)" },
+                                                                    { x: 0.9999 , y: 288.9851901340485, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 0.9999499999999999 , y: 316.77112184791565, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 0.99996 , y: 361.1183458013534, label: "faiss ({'M': 36, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 0.99997 , y: 413.5355135933876, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 400)" },
+                                                                    { x: 0.99999 , y: 590.5987105064393, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 600)" },
                                                             ]
                         },
                                                 ]},
@@ -620,10 +682,22 @@
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 0.98173 , y: 4390.9500640483675, label: "Hora(hora-search) 1625347679.5750475" },
-                                                                    { x: 0.99466 , y: 3700.2597492880777, label: "Hora(hora-search) 1625375150.9023478" },
-                                                                    { x: 0.9999499999999999 , y: 1787.9749283892065, label: "Hora(hora-search) 1625399463.1106868" },
-                                                                    { x: 0.9999800000000001 , y: 1203.969896274632, label: "Hora(hora-search) 1625383176.5456972" },
+                                                                    { x: 0.91931 , y: 7752.902552856491, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.9515499999999999 , y: 6937.761180994625, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.9874700000000001 , y: 5872.662079116135, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.9940300000000001 , y: 4793.291980377498, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.99678 , y: 4118.1511489535515, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.9976900000000001 , y: 3898.070882870438, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.99774 , y: 3802.826581009839, label: "faiss ({'M': 36, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.9991300000000001 , y: 3290.4608107769923, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.99946 , y: 3043.780969895748, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.99961 , y: 2575.607704795097, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.9996600000000001 , y: 2536.862893768915, label: "faiss ({'M': 96, 'efConstruction': 500}, ef: 40)" },
+                                                                    { x: 0.99977 , y: 2095.0619661825363, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 0.9999499999999999 , y: 2028.730036426463, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 0.99997 , y: 1840.59472265051, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 80)" },
+                                                                    { x: 0.9999800000000001 , y: 1416.5770393693076, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 120)" },
+                                                                    { x: 1.0 , y: 1077.7437884547935, label: "faiss ({'M': 16, 'efConstruction': 500}, ef: 200)" },
                                                             ]
                         },
                                                 ]},
@@ -701,7 +775,16 @@
                             pointStyle: "rect",
                             borderColor: "rgba(229, 102, 102, 1)",
                             data: [
-                                                                    { x: 1.0 , y: 4390.9500640483675, label: "Hora(hora-search) 1625347679.5750475" },
+                                                                    { x: 0.9964999999999999 , y: 7752.902552856491, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.9988699999999999 , y: 6937.761180994625, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.9993700000000001 , y: 5872.662079116135, label: "faiss ({'M': 8, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.99943 , y: 5375.107648144351, label: "faiss ({'M': 48, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.99968 , y: 5329.186170023531, label: "faiss ({'M': 64, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.99979 , y: 5303.236800936053, label: "faiss ({'M': 36, 'efConstruction': 500}, ef: 10)" },
+                                                                    { x: 0.99983 , y: 4793.291980377498, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.99986 , y: 4118.1511489535515, label: "faiss ({'M': 24, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 0.9999100000000001 , y: 3802.826581009839, label: "faiss ({'M': 36, 'efConstruction': 500}, ef: 20)" },
+                                                                    { x: 1.0 , y: 3290.4608107769923, label: "faiss ({'M': 12, 'efConstruction': 500}, ef: 40)" },
                                                             ]
                         },
                                                 ]},

@@ -56,7 +56,8 @@ class Hora(BaseANN):
     def query(self, v, n):
         if self._metric == 'angular':
             v /= np.linalg.norm(v)
-        return self.index.search_np(np.float32(v), n)
+        x = self.index.search_np(np.float32(v), n)
+        return x
 
     def set_query_arguments(self, epsilon):
         print(epsilon)

@@ -8,8 +8,10 @@ import yaml
 import numpy
 import hashlib
 from jinja2 import Environment, FileSystemLoader
-# import seaborn as sns
+import seaborn as sns
 # sns.set_theme(style="whitegrid")
+#sns.set_theme(style="darkgrid")
+#sns.color_palette("pastel")
 
 from ann_benchmarks import results
 from ann_benchmarks.datasets import get_dataset

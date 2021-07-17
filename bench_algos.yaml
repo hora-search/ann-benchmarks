@@ -1,35 +1,47 @@
 float:
   euclidean:
-    hora-HNSWIndex:
-      docker-tag: ann-benchmarks-hora
-      module: ann_benchmarks.algorithms.hora
-      constructor: Hora
-      base-args: ["euclidean"]
-      run-groups:
-        main:
-          arg-groups: 
-            - {"n_neighbor": 16,  "n_neighbor0": 32, "ef_search":16, "index": "HNSWIndex"}
-          query-args: [[50, 120, 160, 200, 400, 600]]
-        M-1:
-          arg-groups:
-            - {"n_neighbor": 32,  "n_neighbor0": 64, "ef_search":32, "index": "HNSWIndex"}
-          query-args: [[50, 120, 160, 200, 400, 600]]
-        M-2:
-          arg-groups:
-            - {"n_neighbor": 64,  "n_neighbor0": 128, "ef_search":64, "index": "HNSWIndex"}
-          query-args: [[50, 120, 160, 200, 400, 600]]
-        M-3:
-          arg-groups:
-            - {"n_neighbor": 128,  "n_neighbor0": 256, "ef_search":128, "index": "HNSWIndex"}
-          query-args: [[50, 120, 160, 200, 400, 600]]
-        M-4:
-          arg-groups:
-            - {"n_neighbor": 256,  "n_neighbor0": 512, "ef_search":256, "index": "HNSWIndex"}
-          query-args: [[50, 120, 160, 200, 400, 600]]
-        M-5:
-          arg-groups:
-            - {"n_neighbor": 8,  "n_neighbor0": 16, "ef_search":8, "index": "HNSWIndex"}
-          query-args: [[50, 120, 160, 200, 400, 600]]
+    # hora-HNSWIndex:
+    #   docker-tag: ann-benchmarks-hora
+    #   module: ann_benchmarks.algorithms.hora
+    #   constructor: Hora
+    #   base-args: ["euclidean"]
+    #   run-groups:
+    #     main:
+    #       arg-groups: 
+    #         - {"n_neighbor": 16,  "n_neighbor0": 32, "ef_search":16, "index": "HNSWIndex"}
+    #       query-args: [[50, 120, 160, 200, 400, 600]]
+    #     M-1:
+    #       arg-groups:
+    #         - {"n_neighbor": 32,  "n_neighbor0": 64, "ef_search":32, "index": "HNSWIndex"}
+    #       query-args: [[50, 120, 160, 200, 400, 600]]
+    #     M-2:
+    #       arg-groups:
+    #         - {"n_neighbor": 64,  "n_neighbor0": 128, "ef_search":64, "index": "HNSWIndex"}
+    #       query-args: [[50, 120, 160, 200, 400, 600]]
+    #     M-3:
+    #       arg-groups:
+    #         - {"n_neighbor": 128,  "n_neighbor0": 256, "ef_search":128, "index": "HNSWIndex"}
+    #       query-args: [[50, 120, 160, 200, 400, 600]]
+    #     M-4:
+    #       arg-groups:
+    #         - {"n_neighbor": 256,  "n_neighbor0": 512, "ef_search":256, "index": "HNSWIndex"}
+    #       query-args: [[50, 120, 160, 200, 400, 600]]
+    #     M-5:
+    #       arg-groups:
+    #         - {"n_neighbor": 8,  "n_neighbor0": 16, "ef_search":8, "index": "HNSWIndex"}
+    #       query-args: [[50, 120, 160, 200, 400, 600]]
+    #     M-5:
+    #       arg-groups:
+    #         - {"n_neighbor": 300,  "n_neighbor0": 400, "ef_search":300, "index": "HNSWIndex"}
+    #       query-args: [[50, 120, 160, 200, 400, 600]]
+    #     M-7:
+    #       arg-groups:
+    #         - {"n_neighbor": 10,  "n_neighbor0": 20, "ef_search":10, "index": "HNSWIndex"}
+    #       query-args: [[50, 120, 160, 200, 400, 600]]
+    #     M-7:
+    #       arg-groups:
+    #         - {"n_neighbor": 50,  "n_neighbor0": 70, "ef_search":50, "index": "HNSWIndex"}
+    #       query-args: [[50, 120, 160, 200, 400, 600]]
     hora-SGGIndex:
       docker-tag: ann-benchmarks-hora
       module: ann_benchmarks.algorithms.hora
@@ -62,142 +74,178 @@ float:
           query-args: [[50, 120, 160, 200, 400, 600]]
         M-6:
           arg-groups:
-            - {"angle": 20.0,  "index_size": 50, "neighbor_neighbor_size": 50, "root_size": 256, "index": "SSGIndex"}
+            - {"angle": 10.0,  "index_size": 80, "neighbor_neighbor_size": 80, "root_size": 256, "index": "SSGIndex"}
           query-args: [[50, 120, 160, 200, 400, 600]]
-    hora-BruteForceIndex:
-      docker-tag: ann-benchmarks-hora
-      module: ann_benchmarks.algorithms.hora
-      constructor: Hora
-      base-args: ["euclidean"]
-      run-groups:
-        main:
+        M-7:
           arg-groups:
-            - {"index": "BruteForceIndex"}
+            - {"angle": 20.0,  "index_size": 80, "neighbor_neighbor_size": 80, "root_size": 256, "index": "SSGIndex"}
           query-args: [[50, 120, 160, 200, 400, 600]]
-    faiss-ivf:
-      docker-tag: ann-benchmarks-faiss
-      module: ann_benchmarks.algorithms.faiss
-      constructor: FaissIVF
-      base-args: ["@metric"]
-      run-groups:
-        base:
-          args: [[32,64,128,256,512,1024,2048,4096,8192]]
-          query-args: [[1, 5, 10, 50, 100, 200]]
-    hnsw(faiss):
-     docker-tag: ann-benchmarks-faiss
-     module: ann_benchmarks.algorithms.faiss_hnsw
-     constructor: FaissHNSW
-     base-args: ["@metric"]
-     run-groups:
-       M-4:
-         arg-groups:
-           - {"M": 4,  "efConstruction": 500}
-         query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
-       M-8:
-         arg-groups:
-           - {"M": 8,  "efConstruction": 500}
-         query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
-       M-12:
-         arg-groups:
-           - {"M": 12,  "efConstruction": 500}
-         query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
-       M-16:
-         arg-groups:
-           - {"M": 16,  "efConstruction": 500}
-         query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
-       M-24:
-         arg-groups:
-           - {"M": 24,  "efConstruction": 500}
-         query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
-       M-36:
-         arg-groups:
-           - {"M": 36,  "efConstruction": 500}
-         query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
-       M-48:
-         arg-groups:
-           - {"M": 48,  "efConstruction": 500}
-         query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
-       M-64:
-         arg-groups:
-           - {"M": 64,  "efConstruction": 500}
-         query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
-       M-96:
-         arg-groups:
-           - {"M": 96,  "efConstruction": 500}
-         query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
-    annoy:
-      docker-tag: ann-benchmarks-annoy
-      module: ann_benchmarks.algorithms.annoy
-      constructor: Annoy
-      base-args: ["@metric"]
-      run-groups:
-        annoy:
-          args: [[100, 200, 400]]
-          query-args: [[100, 200, 400, 1000, 2000, 4000, 10000, 20000, 40000,
-                      100000, 200000, 400000]]
-    faiss-lsh:
-      disabled: true
-      docker-tag: ann-benchmarks-faiss
-      module: ann_benchmarks.algorithms.faiss
-      constructor: FaissLSH
-      base-args: ["@metric"]
-      run-groups:
-        base:
-          # When @args is a list, the result is the Cartesian product of all of
-          # the things it contains; entries that aren't a list will be treated
-          # as lists of length one.
-          args: [[32, 64, 128, 256, 512, 1024, 2048, 4096]]
-          # This run group will produce eight algorithm instances:
-          # FaissLSH(32), FaissLSH(64), and so on up to FaissLSH(4096).
-    bruteforce:
-      disabled: true
-      docker-tag: ann-benchmarks-sklearn
-      module: ann_benchmarks.algorithms.bruteforce
-      constructor: BruteForce
-      base-args: ["@metric"]
-      run-groups:
-        empty:
-          args: []
-    bruteforce-blas:
-      docker-tag: ann-benchmarks-sklearn
-      module: ann_benchmarks.algorithms.bruteforce
-      constructor: BruteForceBLAS
-      base-args: ["@metric"]
-      run-groups:
-        empty:
-          args: []
-    dummy-algo-st:
-      disabled: true
-      docker-tag: ann-benchmarks-sklearn
-      module: ann_benchmarks.algorithms.dummy_algo
-      constructor: DummyAlgoSt
-      base-args: ["@metric"]
-      run-groups:
-        empty:
-          args: []
-    dummy-algo-mt:
-      disabled: true
-      docker-tag: ann-benchmarks-sklearn
-      module: ann_benchmarks.algorithms.dummy_algo
-      constructor: DummyAlgoMt
-      base-args: ["@metric"]
-      run-groups:
-        empty:
-          args: []
-    ball:
-      disabled: true
-      docker-tag: ann-benchmarks-sklearn
-      module: ann_benchmarks.algorithms.balltree
-      constructor: BallTree
-      base-args: ["@metric"]
-      run-groups:
-        ball:
-          args: &treeargs [[10, 20, 40, 100, 200, 400, 1000]]
-    kd:
-      docker-tag: ann-benchmarks-sklearn
-      module: ann_benchmarks.algorithms.kdtree
-      constructor: KDTree
-      base-args: ["@metric"]
-      run-groups:
-        ball:
-          args: *treeargs
+        M-8:
+          arg-groups:
+            - {"angle": 5.0,  "index_size": 80, "neighbor_neighbor_size": 80, "root_size": 256, "index": "SSGIndex"}
+          query-args: [[50, 120, 160, 200, 400, 600]]
+        M-9:
+          arg-groups:
+            - {"angle": 5.0,  "index_size": 80, "neighbor_neighbor_size": 80, "root_size": 256, "index": "SSGIndex"}
+          query-args: [[50, 120, 160, 200, 400, 600]]
+        M-9:
+          arg-groups:
+            - {"angle": 90.0,  "index_size": 50, "neighbor_neighbor_size": 50, "root_size": 256, "index": "SSGIndex"}
+          query-args: [[50, 120, 160, 200, 400, 600]]
+        M-10:
+          arg-groups:
+            - {"angle": 90.0,  "index_size": 20, "neighbor_neighbor_size": 20, "root_size": 256, "index": "SSGIndex"}
+          query-args: [[50, 120, 160, 200, 400, 600]]
+        M-11:
+          arg-groups:
+            - {"angle": 60.0,  "index_size": 50, "neighbor_neighbor_size": 50, "root_size": 256, "index": "SSGIndex"}
+          query-args: [[50, 120, 160, 200, 400, 600]]
+        M-12:
+          arg-groups:
+            - {"angle": 30.0,  "index_size": 35, "neighbor_neighbor_size": 35, "root_size": 200, "index": "SSGIndex"}
+          query-args: [[50, 120, 160, 200, 400, 600]]
+        M-13:
+          arg-groups:
+            - {"angle": 60.0,  "index_size": 35, "neighbor_neighbor_size": 35, "root_size": 200, "index": "SSGIndex"}
+          query-args: [[50, 120, 160, 200, 400, 600]]
+        M-14:
+          arg-groups:
+            - {"angle": 5.0,  "index_size": 30, "neighbor_neighbor_size": 30, "root_size": 256, "index": "SSGIndex"}
+          query-args: [[50, 120, 160, 200, 400, 600]]
+    # hora-BruteForceIndex:
+    #   docker-tag: ann-benchmarks-hora
+    #   module: ann_benchmarks.algorithms.hora
+    #   constructor: Hora
+    #   base-args: ["euclidean"]
+    #   run-groups:
+    #     main:
+    #       arg-groups:
+    #         - {"index": "BruteForceIndex"}
+    #       query-args: [[50, 120, 160, 200, 400, 600]]
+    # faiss-ivf:
+    #   docker-tag: ann-benchmarks-faiss
+    #   module: ann_benchmarks.algorithms.faiss
+    #   constructor: FaissIVF
+    #   base-args: ["@metric"]
+    #   run-groups:
+    #     base:
+    #       args: [[32,64,128,256,512,1024,2048,4096,8192]]
+    #       query-args: [[1, 5, 10, 50, 100, 200]]
+    # hnsw(faiss):
+    #  docker-tag: ann-benchmarks-faiss
+    #  module: ann_benchmarks.algorithms.faiss_hnsw
+    #  constructor: FaissHNSW
+    #  base-args: ["@metric"]
+    #  run-groups:
+    #    M-4:
+    #      arg-groups:
+    #        - {"M": 4,  "efConstruction": 500}
+    #      query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
+    #    M-8:
+    #      arg-groups:
+    #        - {"M": 8,  "efConstruction": 500}
+    #      query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
+    #    M-12:
+    #      arg-groups:
+    #        - {"M": 12,  "efConstruction": 500}
+    #      query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
+    #    M-16:
+    #      arg-groups:
+    #        - {"M": 16,  "efConstruction": 500}
+    #      query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
+    #    M-24:
+    #      arg-groups:
+    #        - {"M": 24,  "efConstruction": 500}
+    #      query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
+    #    M-36:
+    #      arg-groups:
+    #        - {"M": 36,  "efConstruction": 500}
+    #      query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
+    #    M-48:
+    #      arg-groups:
+    #        - {"M": 48,  "efConstruction": 500}
+    #      query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
+    #    M-64:
+    #      arg-groups:
+    #        - {"M": 64,  "efConstruction": 500}
+    #      query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
+    #    M-96:
+    #      arg-groups:
+    #        - {"M": 96,  "efConstruction": 500}
+    #      query-args: [[10, 20, 40, 80, 120, 200, 400, 600, 800]]
+    # annoy:
+    #   docker-tag: ann-benchmarks-annoy
+    #   module: ann_benchmarks.algorithms.annoy
+    #   constructor: Annoy
+    #   base-args: ["@metric"]
+    #   run-groups:
+    #     annoy:
+    #       args: [[100, 200, 400]]
+    #       query-args: [[100, 200, 400, 1000, 2000, 4000, 10000, 20000, 40000,
+    #                   100000, 200000, 400000]]
+    # faiss-lsh:
+    #   disabled: true
+    #   docker-tag: ann-benchmarks-faiss
+    #   module: ann_benchmarks.algorithms.faiss
+    #   constructor: FaissLSH
+    #   base-args: ["@metric"]
+    #   run-groups:
+    #     base:
+    #       # When @args is a list, the result is the Cartesian product of all of
+    #       # the things it contains; entries that aren't a list will be treated
+    #       # as lists of length one.
+    #       args: [[32, 64, 128, 256, 512, 1024, 2048, 4096]]
+    #       # This run group will produce eight algorithm instances:
+    #       # FaissLSH(32), FaissLSH(64), and so on up to FaissLSH(4096).
+    # bruteforce:
+    #   disabled: true
+    #   docker-tag: ann-benchmarks-sklearn
+    #   module: ann_benchmarks.algorithms.bruteforce
+    #   constructor: BruteForce
+    #   base-args: ["@metric"]
+    #   run-groups:
+    #     empty:
+    #       args: []
+    # bruteforce-blas:
+    #   docker-tag: ann-benchmarks-sklearn
+    #   module: ann_benchmarks.algorithms.bruteforce
+    #   constructor: BruteForceBLAS
+    #   base-args: ["@metric"]
+    #   run-groups:
+    #     empty:
+    #       args: []
+    # dummy-algo-st:
+    #   disabled: true
+    #   docker-tag: ann-benchmarks-sklearn
+    #   module: ann_benchmarks.algorithms.dummy_algo
+    #   constructor: DummyAlgoSt
+    #   base-args: ["@metric"]
+    #   run-groups:
+    #     empty:
+    #       args: []
+    # dummy-algo-mt:
+    #   disabled: true
+    #   docker-tag: ann-benchmarks-sklearn
+    #   module: ann_benchmarks.algorithms.dummy_algo
+    #   constructor: DummyAlgoMt
+    #   base-args: ["@metric"]
+    #   run-groups:
+    #     empty:
+    #       args: []
+    # ball:
+    #   disabled: true
+    #   docker-tag: ann-benchmarks-sklearn
+    #   module: ann_benchmarks.algorithms.balltree
+    #   constructor: BallTree
+    #   base-args: ["@metric"]
+    #   run-groups:
+    #     ball:
+    #       args: &treeargs [[10, 20, 40, 100, 200, 400, 1000]]
+    # kd:
+    #   docker-tag: ann-benchmarks-sklearn
+    #   module: ann_benchmarks.algorithms.kdtree
+    #   constructor: KDTree
+    #   base-args: ["@metric"]
+    #   run-groups:
+    #     ball:
+    #       args: *treeargs
